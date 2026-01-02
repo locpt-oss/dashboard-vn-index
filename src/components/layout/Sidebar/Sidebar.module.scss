@@ -1,32 +1,10 @@
-// @use '@/styles/variables' as var;
+@use '../../../styles/variables' as var;
+@use '../../../styles/typography' as typo;
 
-// .sidebar {
-//   width: var.$sidebar-width;
-//   height: 100vh;
-//   background-color: var.$card-bg; // Nền trắng
-//   border-right: 1px solid var.$border-color;
-//   display: flex;
-//   flex-direction: column;
+aside {
+  header {
+  }
 
-//   .logo {
-//     padding: 1.5rem;
-//     font-size: 1.25rem;
-//     font-weight: 800;
-//     color: var.$color-proprietary; // Dùng màu xanh làm điểm nhấn logo
-//     border-bottom: 1px solid var.$border-color;
-//   }
-
-//   .navLink {
-//     color: var.$text-muted;
-
-//     &:hover {
-//       background-color: #f1f5f9;
-//       color: var.$text-main;
-//     }
-
-//     &.active {
-//       background-color: #eff6ff; // Xanh dương cực nhạt
-//       color: var.$color-proprietary;
-//     }
-//   }
-// }
+  nav {
+  }
+}

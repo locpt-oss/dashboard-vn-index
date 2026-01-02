@@ -1,18 +1,34 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { NAV_ITEMS } from '@/constants/navigation';
-import styles from './Sidebar.module.scss';
 import clsx from 'clsx';
+
+import { NAV_ITEMS } from '@/constants/navigation';
+
+import { Flex, Text } from '@mantine/core';
+import styles from './Sidebar.module.scss';
 
 const Sidebar = () => {
   const pathname = usePathname();
 
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logo}>VN-INSIGHTS</div>
-      <nav className={styles.nav}>
+      <div className={styles.header}>
+        <Image
+          src="/vninsight-logo.svg"
+          alt="VNINSIGHT Logo"
+          width={32} // Chỉnh kích thước cho khớp với thiết kế
+          height={32}
+          priority // Ưu tiên load logo trước
+        />
+        <Text component="span" className={styles.brandText}>
+          {' '}
+          VnInsight
+        </Text>
+      </div>
+      {/* <nav className={styles.nav}>
         {NAV_ITEMS.map((item) => {
           const isActive = pathname.startsWith(item.href);
 
@@ -45,7 +61,7 @@ const Sidebar = () => {
             </div>
           );
         })}
-      </nav>
+      </nav> */}
     </aside>
   );
 };

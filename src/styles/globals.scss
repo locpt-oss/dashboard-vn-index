@@ -9,7 +9,9 @@
 
 body {
   background-color: var.$bg-base-default; // Ép về màu sáng
+  font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Thanh cuộn cho Light Mode

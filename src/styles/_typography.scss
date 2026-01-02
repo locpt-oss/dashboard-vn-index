@@ -12,9 +12,16 @@
 
 // --- DISPLAY ---
 @mixin display-large($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-display-large,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-display-large,
     var.$ls-display-large
   );
@@ -24,9 +31,16 @@
 }
 
 @mixin display-medium($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-display-medium,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-display-medium,
     var.$ls-display-medium
   );
@@ -36,9 +50,15 @@
 }
 
 @mixin display-small($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
   @include font-base(
     var.$fs-display-small,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-display-small,
     var.$ls-display-small
   );
@@ -49,9 +69,16 @@
 
 // --- HEADLINE ---
 @mixin headline-large($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-headline-large,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-headline-large,
     var.$ls-headline-large
   );
@@ -60,9 +87,16 @@
   @include headline-large(true);
 }
 @mixin headline-medium($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-headline-medium,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-headline-medium,
     var.$ls-headline-medium
   );
@@ -71,9 +105,16 @@
   @include headline-medium(true);
 }
 @mixin headline-small($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-headline-small,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-headline-small,
     var.$ls-headline-small
   );
@@ -84,9 +125,16 @@
 
 // --- TITLE ---
 @mixin title-large($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-title-large,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-title-large,
     var.$ls-title-large
   );
@@ -95,9 +143,16 @@
   @include title-large(true);
 }
 @mixin title-medium($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-semibold;
+  } @else {
+    $weight: var.$weight-medium;
+  }
+
   @include font-base(
     var.$fs-title-medium,
-    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    $weight,
     var.$lh-title-medium,
     var.$ls-title-medium
   );
@@ -106,9 +161,16 @@
   @include title-medium(true);
 }
 @mixin title-small($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-semibold;
+  } @else {
+    $weight: var.$weight-medium;
+  }
+
   @include font-base(
     var.$fs-title-small,
-    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    $weight,
     var.$lh-title-small,
     var.$ls-title-small
   );
@@ -119,9 +181,16 @@
 
 // --- LABEL ---
 @mixin label-large($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-semibold;
+  } @else {
+    $weight: var.$weight-medium;
+  }
+
   @include font-base(
     var.$fs-label-large,
-    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    $weight,
     var.$lh-label-large,
     var.$ls-label-large
   );
@@ -132,9 +201,16 @@
 }
 
 @mixin label-medium($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-semibold;
+  } @else {
+    $weight: var.$weight-medium;
+  }
+
   @include font-base(
     var.$fs-label-medium,
-    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    $weight,
     var.$lh-label-medium,
     var.$ls-label-medium
   );
@@ -145,9 +221,16 @@
 }
 
 @mixin label-small($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-semibold;
+  } @else {
+    $weight: var.$weight-medium;
+  }
+
   @include font-base(
     var.$fs-label-small,
-    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    $weight,
     var.$lh-label-small,
     var.$ls-label-small
   );
@@ -159,9 +242,16 @@
 
 // -- BODY ---
 @mixin body-large($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-body-large,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-body-large,
     var.$ls-body-large
   );
@@ -172,9 +262,16 @@
 }
 
 @mixin body-medium($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-body-medium,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-body-medium,
     var.$ls-body-medium
   );
@@ -185,9 +282,16 @@
 }
 
 @mixin body-small($isEmphasized: false) {
+  $weight: null;
+  @if $isEmphasized {
+    $weight: var.$weight-medium;
+  } @else {
+    $weight: var.$weight-regular;
+  }
+
   @include font-base(
     var.$fs-body-small,
-    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    $weight,
     var.$lh-body-small,
     var.$ls-body-small
   );
