@@ -2,94 +2,197 @@
 @use './variables' as var;
 
 // --- CORE MIXIN ---
-@mixin font-base($size, $weight, $lh: 1.5) {
+@mixin font-base($size, $weight, $lh: 1.5, $spacing: 0) {
   font-family: var(--font-inter), sans-serif; // Dùng biến từ layout.tsx
   font-size: $size;
   font-weight: $weight;
   line-height: $lh;
+  ls: $spacing;
 }
 
 // --- DISPLAY ---
-@mixin display-large($bold: false) {
-  @include font-base(57px, if($bold, 700, 500), 1.12);
+@mixin display-large($isEmphasized: false) {
+  @include font-base(
+    var.$fs-display-large,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-display-large,
+    var.$ls-display-large
+  );
 }
 @mixin display-large-emphasized {
-  @include display-large;
+  @include display-large(true);
 }
 
-@mixin display-medium {
+@mixin display-medium($isEmphasized: false) {
+  @include font-base(
+    var.$fs-display-medium,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-display-medium,
+    var.$ls-display-medium
+  );
 }
 @mixin display-medium-emphasized {
+  @include display-medium(true);
 }
 
-@mixin display-small {
+@mixin display-small($isEmphasized: false) {
+  @include font-base(
+    var.$fs-display-small,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-display-small,
+    var.$ls-display-small
+  );
 }
 @mixin display-small-emphasized {
+  @include display-small(true);
 }
 
 // --- HEADLINE ---
-@mixin headline-large {
+@mixin headline-large($isEmphasized: false) {
+  @include font-base(
+    var.$fs-headline-large,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-headline-large,
+    var.$ls-headline-large
+  );
 }
 @mixin headline-large-emphasized {
+  @include headline-large(true);
 }
-@mixin headline-medium {
+@mixin headline-medium($isEmphasized: false) {
+  @include font-base(
+    var.$fs-headline-medium,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-headline-medium,
+    var.$ls-headline-medium
+  );
 }
 @mixin headline-medium-emphasized {
+  @include headline-medium(true);
 }
-@mixin headline-small {
+@mixin headline-small($isEmphasized: false) {
+  @include font-base(
+    var.$fs-headline-small,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-headline-small,
+    var.$ls-headline-small
+  );
 }
 @mixin headline-small-emphasized {
+  @include headline-small(true);
 }
 
 // --- TITLE ---
-@mixin title-large {
+@mixin title-large($isEmphasized: false) {
+  @include font-base(
+    var.$fs-title-large,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-title-large,
+    var.$ls-title-large
+  );
 }
 @mixin title-large-emphasized {
-  @include title-large;
+  @include title-large(true);
 }
-@mixin title-medium {
+@mixin title-medium($isEmphasized: false) {
+  @include font-base(
+    var.$fs-title-medium,
+    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    var.$lh-title-medium,
+    var.$ls-title-medium
+  );
 }
 @mixin title-medium-emphasized {
+  @include title-medium(true);
 }
-@mixin title-small {
+@mixin title-small($isEmphasized: false) {
+  @include font-base(
+    var.$fs-title-small,
+    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    var.$lh-title-small,
+    var.$ls-title-small
+  );
 }
 @mixin title-small-emphasized {
+  @include title-small(true);
 }
 
 // --- LABEL ---
-@mixin label-large {
+@mixin label-large($isEmphasized: false) {
+  @include font-base(
+    var.$fs-label-large,
+    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    var.$lh-label-large,
+    var.$ls-label-large
+  );
 }
 
 @mixin label-large-emphasized {
+  @include label-large(true);
 }
 
-@mixin label-medium {
+@mixin label-medium($isEmphasized: false) {
+  @include font-base(
+    var.$fs-label-medium,
+    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    var.$lh-label-medium,
+    var.$ls-label-medium
+  );
 }
 
 @mixin label-medium-emphasized {
+  @include label-medium(true);
 }
 
-@mixin label-small {
+@mixin label-small($isEmphasized: false) {
+  @include font-base(
+    var.$fs-label-small,
+    if($isEmphasized, var.$weight-semibold, var.$weight-medium),
+    var.$lh-label-small,
+    var.$ls-label-small
+  );
 }
 
 @mixin label-small-emphasized {
+  @include label-small(true);
 }
 
 // -- BODY ---
-@mixin body-large {
+@mixin body-large($isEmphasized: false) {
+  @include font-base(
+    var.$fs-body-large,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-body-large,
+    var.$ls-body-large
+  );
 }
 
 @mixin body-large-emphasized {
+  @include body-large(true);
 }
 
-@mixin body-medium {
+@mixin body-medium($isEmphasized: false) {
+  @include font-base(
+    var.$fs-body-medium,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-body-medium,
+    var.$ls-body-medium
+  );
 }
 
 @mixin body-medium-emphasized {
+  @include body-medium(true);
 }
 
-@mixin body-small {
+@mixin body-small($isEmphasized: false) {
+  @include font-base(
+    var.$fs-body-small,
+    if($isEmphasized, var.$weight-medium, var.$weight-regular),
+    var.$lh-body-small,
+    var.$ls-body-small
+  );
 }
 
 @mixin body-small-emphasized {
+  @include body-small(true);
 }
