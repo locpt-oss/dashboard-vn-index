@@ -1,10 +1,85 @@
 @use '../../../styles/variables' as var;
 @use '../../../styles/typography' as typo;
 
-aside {
-  header {
+.sidebar {
+  padding: var.$space-16;
+  width: 250px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var.$space-12;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var.$space-8;
+    padding: var.$space-4 var.$space-0;
+
+    cursor: pointer;
+
+    .brandText {
+      margin-top: var.$space-6;
+      color: var.$text-neutral-default;
+      @include typo.headline-small-emphasized;
+      font-weight: var.$weight-bold;
+    }
   }
 
   nav {
+    display: flex;
+    flex-direction: column;
+    column-gap: var.$space-4;
+
+    .menu {
+      padding: var.$space-4 var.$space-12;
+      @include typo.body-medium;
+      color: var.$text-default-tertiary;
+    }
+
+    .navContainer {
+      @include typo.body-medium;
+      color: var.$text-neutral-tertiary;
+
+      .navLink {
+        border-radius: 8px;
+        margin-bottom: 4px;
+        color: var.$text-neutral-secondary;
+        transition: all 0.2s ease;
+
+        // Icon style
+        :global(.mantine-NavLink-section) {
+          color: var.$text-neutral-tertiary;
+        }
+
+        &:hover {
+          background-color: var.$bg-default-default-hover;
+          color: var.$text-neutral-on-neutral;
+        }
+
+        &[data-active] {
+          background-color: var.$bg-neutral-secondary;
+          color: var.$text-neutral-on-neutral;
+          font-weight: 600;
+
+          :global(.mantine-NavLink-section) {
+            color: var.$text-brand-default; // Icon Fill sẽ có màu Brand
+          }
+        }
+      }
+
+      .childLink {
+        margin-left: 20px;
+        border-left: 1px solid var.$border-neutral-default;
+        border-radius: 0 8px 8px 0;
+        color: var.$text-neutral-secondary;
+
+        &[data-active] {
+          color: var.$text-brand-default;
+          background-color: transparent;
+          font-weight: 600;
+        }
+      }
+    }
   }
 }

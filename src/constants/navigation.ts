@@ -1,41 +1,41 @@
+// src/constants/navigation.ts
 import {
-  LayoutDashboard,
-  Users2,
-  Zap,
-  PieChart,
-  CalendarDays,
-  Target,
-} from 'lucide-react';
+  House,
+  UsersThree,
+  ChartPieSlice,
+  TrendUp,
+  CalendarBlank,
+} from '@phosphor-icons/react';
 
 export const NAV_ITEMS = [
   {
-    title: 'Tổng quan',
-    href: '/overview',
-    icon: LayoutDashboard,
+    label: 'Overview',
+    icon: House,
+    link: '/dashboard',
   },
   {
-    title: 'Chủ thể',
-    href: '/investors',
-    icon: Users2,
-    subMenu: [
-      { title: 'Nước ngoài', href: '/investors/foreign' },
-      { title: 'Tự doanh', href: '/investors/proprietary' },
-      { title: 'Truy vết dòng tiền', href: '/investors/tracker', icon: Target },
+    label: 'Investor',
+    icon: UsersThree,
+    initiallyOpened: true, // Mặc định mở rộng như trong ảnh
+    links: [
+      { label: 'Foreign', link: '/investor/foreign' },
+      { label: 'Proprietary', link: '/investor/proprietary' },
+      { label: 'Tracker', link: '/investor/tracker' },
     ],
   },
   {
-    title: 'Ngành',
-    href: '/industries',
-    icon: PieChart,
+    label: 'Industries',
+    icon: ChartPieSlice,
+    link: '/industries',
   },
   {
-    title: 'Tín hiệu',
-    href: '/signals',
-    icon: Zap,
+    label: 'Signals',
+    icon: TrendUp,
+    link: '/signals',
   },
   {
-    title: 'Lịch cổ tức',
-    href: '/dividends',
-    icon: CalendarDays,
+    label: 'Dividends',
+    icon: CalendarBlank,
+    link: '/dividends',
   },
 ];

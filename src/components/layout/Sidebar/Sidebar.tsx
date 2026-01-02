@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 import { NAV_ITEMS } from '@/constants/navigation';
 
-import { Flex, Text } from '@mantine/core';
+import { Flex, NavLink, Text } from '@mantine/core';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = () => {
@@ -19,49 +19,50 @@ const Sidebar = () => {
         <Image
           src="/vninsight-logo.svg"
           alt="VNINSIGHT Logo"
-          width={32} // Chỉnh kích thước cho khớp với thiết kế
-          height={32}
+          width={42} // Chỉnh kích thước cho khớp với thiết kế
+          height={42}
           priority // Ưu tiên load logo trước
         />
-        <Text component="span" className={styles.brandText}>
-          {' '}
-          VnInsight
-        </Text>
+        <span className={styles.brandText}>VnInsight</span>
       </div>
-      {/* <nav className={styles.nav}>
-        {NAV_ITEMS.map((item) => {
-          const isActive = pathname.startsWith(item.href);
+      <nav className={styles.nav}>
+        <span className={styles.menu}>Menu</span>
+        <div className={styles.navContainer}>
+          {NAV_ITEMS.map((item) => {
+            const isChildActive = item.links?.some(
+              (child) => child.link === pathname,
+            );
+            const isActive = pathname === item.link || isChildActive;
 
-          return (
-            <div key={item.href} className={styles.navGroup}>
-              <Link
-                href={item.href}
-                className={clsx(styles.navLink, isActive && styles.active)}
+            return (
+              <NavLink
+                key={item.label}
+                label={item.label}
+                leftSection={
+                  <item.icon size={22} weight={isActive ? 'fill' : 'duotone'} />
+                }
+                component="a"
+                href={item.link || '#'}
+                active={isActive}
+                defaultOpened={item.initiallyOpened}
+                className={styles.navLink}
+                // Tự động mở menu con nếu có item con đang active
               >
-                <item.icon className={styles.icon} />
-                <span>{item.title}</span>
-              </Link>
-
-              {item.subMenu && isActive && (
-                <div className={styles.subMenu}>
-                  {item.subMenu.map((sub) => (
-                    <Link
-                      key={sub.href}
-                      href={sub.href}
-                      className={clsx(
-                        styles.subLink,
-                        pathname === sub.href && styles.active,
-                      )}
-                    >
-                      {sub.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </nav> */}
+                {item.links?.map((child) => (
+                  <NavLink
+                    key={child.label}
+                    label={child.label}
+                    component="a"
+                    href={child.link}
+                    active={pathname === child.link}
+                    className={styles.childLink}
+                  />
+                ))}
+              </NavLink>
+            );
+          })}
+        </div>
+      </nav>
     </aside>
   );
 };

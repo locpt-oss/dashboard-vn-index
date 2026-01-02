@@ -3,7 +3,7 @@
 
 // --- CORE MIXIN ---
 @mixin font-base($size, $weight, $lh: 1.5, $spacing: 0) {
-  font-family: var(--font-inter), sans-serif; // Dùng biến từ layout.tsx
+  font-family: var(--font-roboto), sans-serif; // Dùng biến từ layout.tsx
   font-size: $size;
   font-weight: $weight;
   line-height: $lh;

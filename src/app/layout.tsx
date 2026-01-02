@@ -1,6 +1,6 @@
 // Import Libraries
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core';
 // Import Styles
 import '@/styles/globals.scss';
@@ -9,16 +9,16 @@ import styles from '@/app/layout.module.scss';
 import Sidebar from '@/components/layout/Sidebar';
 
 // 1. Cấu hình Font Inter
-const inter = Inter({
+const roboto = Roboto({
   subsets: ['latin', 'vietnamese'], // Bắt buộc có vietnamese để đọc tiếng Việt không lỗi
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
-  variable: '--font-inter', // Tạo biến CSS để SCSS có thể dùng được
+  variable: '--font-roboto', // Tạo biến CSS để SCSS có thể dùng được
 });
 
 // 2. Cấu hình Mantine Theme
 const theme = createTheme({
-  fontFamily: inter.style.fontFamily, // Áp dụng font Inter cho toàn bộ Mantine
+  fontFamily: roboto.style.fontFamily, // Áp dụng font Inter cho toàn bộ Mantine
 });
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={inter.variable} suppressHydrationWarning>
+    <html lang="vi" className={roboto.variable} suppressHydrationWarning>
       <head>
         <ColorSchemeScript />
       </head>
