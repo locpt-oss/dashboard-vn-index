@@ -1,17 +1,3 @@
-// src/styles/_variables.scss
-
-// Nền và chữ (Light Mode)
-$bg-main: #f8fafc; // Màu nền chính (Slate 50)
-$card-bg: #ffffff; // Màu các thẻ nội dung (Trắng tinh)
-$border-color: #e2e8f0; // Màu viền (Slate 200)
-$text-main: #0f172a; // Chữ chính (Slate 900)
-$text-muted: #64748b; // Chữ phụ (Slate 500)
-
-// Màu sắc nhận diện dòng tiền (Vẫn giữ đặc trưng nhưng chỉnh độ sáng cho hợp nền trắng)
-$color-foreign: #7e22ce; // Tím đậm hơn chút
-$color-proprietary: #2563eb; // Xanh dương
-$color-individual: #16a34a; // Xanh lá
-$color-org: #ca8a04; // Vàng đậm
-
-// Layout
-$sidebar-width: 260px;
+// src/styles/_variables.module.scss
+@use './variables' as var;
+// Export biến để sử dụng trong các file TSX
