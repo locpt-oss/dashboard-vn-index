@@ -1,0 +1,95 @@
+// src/styles/_typography.scss
+@use './variables' as var;
+
+// --- CORE MIXIN ---
+@mixin font-base($size, $weight, $lh: 1.5) {
+  font-family: var(--font-inter), sans-serif; // Dùng biến từ layout.tsx
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+}
+
+// --- DISPLAY ---
+@mixin display-large($bold: false) {
+  @include font-base(57px, if($bold, 700, 500), 1.12);
+}
+@mixin display-large-emphasized {
+  @include display-large;
+}
+
+@mixin display-medium {
+}
+@mixin display-medium-emphasized {
+}
+
+@mixin display-small {
+}
+@mixin display-small-emphasized {
+}
+
+// --- HEADLINE ---
+@mixin headline-large {
+}
+@mixin headline-large-emphasized {
+}
+@mixin headline-medium {
+}
+@mixin headline-medium-emphasized {
+}
+@mixin headline-small {
+}
+@mixin headline-small-emphasized {
+}
+
+// --- TITLE ---
+@mixin title-large {
+}
+@mixin title-large-emphasized {
+  @include title-large;
+}
+@mixin title-medium {
+}
+@mixin title-medium-emphasized {
+}
+@mixin title-small {
+}
+@mixin title-small-emphasized {
+}
+
+// --- LABEL ---
+@mixin label-large {
+}
+
+@mixin label-large-emphasized {
+}
+
+@mixin label-medium {
+}
+
+@mixin label-medium-emphasized {
+}
+
+@mixin label-small {
+}
+
+@mixin label-small-emphasized {
+}
+
+// -- BODY ---
+@mixin body-large {
+}
+
+@mixin body-large-emphasized {
+}
+
+@mixin body-medium {
+}
+
+@mixin body-medium-emphasized {
+}
+
+@mixin body-small {
+}
+
+@mixin body-small-emphasized {
+}

@@ -1,17 +1,511 @@
 // src/styles/_variables.scss
 
-// Nền và chữ (Light Mode)
-$bg-main: #f8fafc; // Màu nền chính (Slate 50)
-$card-bg: #ffffff; // Màu các thẻ nội dung (Trắng tinh)
-$border-color: #e2e8f0; // Màu viền (Slate 200)
-$text-main: #0f172a; // Chữ chính (Slate 900)
-$text-muted: #64748b; // Chữ phụ (Slate 500)
+// --- FONT SIZE TOKENS ---
+$fs-display-large: 57px;
+$fs-display-medium: 45px;
+$fs-display-small: 36px;
 
-// Màu sắc nhận diện dòng tiền (Vẫn giữ đặc trưng nhưng chỉnh độ sáng cho hợp nền trắng)
-$color-foreign: #7e22ce; // Tím đậm hơn chút
-$color-proprietary: #2563eb; // Xanh dương
-$color-individual: #16a34a; // Xanh lá
-$color-org: #ca8a04; // Vàng đậm
+$fs-headline-large: 32px;
+$fs-headline-medium: 28px;
+$fs-headline-small: 24px;
 
-// Layout
-$sidebar-width: 260px;
+$fs-title-large: 22px;
+$fs-title-medium: 16px;
+$fs-title-small: 14px;
+
+$fs-label-large: 14px;
+$fs-label-medium: 12px;
+$fs-label-small: 11px;
+
+$fs-body-large: 16px;
+$fs-body-medium: 14px;
+$fs-body-small: 12px;
+
+// --- FONT WEIGHT TOKENS ---
+$weight-thin: 100;
+$weight-extra-light: 200;
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-extra-bold: 800;
+$weight-black: 900;
+
+// --- LETTER SPACING TOKENS (Quy đổi từ Figma Tracking / 100) ---
+// Nhóm Display & Headline
+$ls-display-large: -0.025em; // -0.25
+$ls-display-medium: 0em; // 0
+$ls-display-small: 0em; // 0
+
+$ls-headline-large: 0em; // 0
+$ls-headline-medium: 0em; // 0
+$ls-headline-small: 0em; // 0
+
+// Nhóm Title
+$ls-title-large: 0em; // 0
+$ls-title-medium: 0.0015em; // 0.15
+$ls-title-small: 0.001em; // 0.1
+
+// Nhóm Label
+$ls-label-large: 0.001em; // 0.1
+$ls-label-medium: 0.005em; // 0.5
+$ls-label-small: 0.005em; // 0.5
+
+// Nhóm Body
+$ls-body-large: 0.005em; // 0.5
+$ls-body-medium: 0.0025em; // 0.25
+$ls-body-small: 0.004em; // 0.4
+
+// --- LINE HEIGHT TOKENS (Quy đổi: Line-height / Font-size) ---
+// Nhóm Display
+$lh-display-large: 1.2; // Figma: 64/57 (xấp xỉ)
+$lh-display-medium: 1.15; // Figma: 52/45
+$lh-display-small: 1.25; // Figma: 44/36
+
+// Nhóm Headline
+$lh-headline-large: 1.25; // Figma: 40/32
+$lh-headline-medium: 1.3; // Figma: 36/28
+$lh-headline-small: 1.35; // Figma: 32/24
+
+// Nhóm Title
+$lh-title-large: 1.27; // Figma: 28/22
+$lh-title-medium: 1.5; // Figma: 24/16
+$lh-title-small: 1.43; // Figma: 20/14
+
+// Nhóm Label (Thường dùng cho UI components, Sidebar)
+$lh-label-large: 1.25; // Figma: 20/16
+$lh-label-medium: 1.15; // Figma: 16/14
+$lh-label-small: 1.33; // Figma: 16/12
+
+// Nhóm Body (Dùng cho văn bản, báo cáo)
+$lh-body-large: 1.5; // Figma: 24/16
+$lh-body-medium: 1.43; // Figma: 20/14
+$lh-body-small: 1.33; // Figma: 16/12
+
+// --- COLOR TOKENS ---
+$black-100: #0c0c0d0d;
+$black-1000: #0c0c0d;
+$black-200: #0c0c0d1a;
+$black-300: #0c0c0d33;
+$black-400: #0c0c0d66;
+$black-500: #0c0c0db2;
+$black-600: #0c0c0dcc;
+$black-700: #0c0c0dd9;
+$black-800: #0c0c0de5;
+$black-900: #0c0c0df2;
+$blue-100: #f1f6fd;
+$blue-1000: #15253f;
+$blue-200: #e1ebfa;
+$blue-300: #c0d4f5;
+$blue-400: #9ebef1;
+$blue-500: #3f81ea;
+$blue-600: #3271d7;
+$blue-700: #2a61ba;
+$blue-800: #224a8a;
+$blue-900: #183057;
+$brand-100: #f5f5f5;
+$brand-1000: #111111;
+$brand-200: #e6e6e6;
+$brand-300: #d9d9d9;
+$brand-400: #b3b3b3;
+$brand-500: #757575;
+$brand-600: #444444;
+$brand-700: #383838;
+$brand-800: #2c2c2c;
+$brand-900: #1e1e1e;
+$gray-100: #f5f5f5;
+$gray-1000: #111111;
+$gray-200: #e6e6e6;
+$gray-300: #d9d9d9;
+$gray-400: #b3b3b3;
+$gray-500: #757575;
+$gray-600: #444444;
+$gray-700: #383838;
+$gray-800: #2c2c2c;
+$gray-900: #1e1e1e;
+$green-100: #ebffee;
+$green-1000: #062d1b;
+$green-200: #cff7d3;
+$green-300: #aff4c6;
+$green-400: #85e0a3;
+$green-500: #14ae5c;
+$green-600: #009951;
+$green-700: #008043;
+$green-800: #02542d;
+$green-900: #024023;
+$pink-100: #fcf1fd;
+$pink-1000: #3f1536;
+$pink-200: #fae1fa;
+$pink-300: #f5c0ef;
+$pink-400: #f19edc;
+$pink-500: #ea3fb8;
+$pink-600: #d732a8;
+$pink-700: #ba2a92;
+$pink-800: #8a226f;
+$pink-900: #57184a;
+$red-100: #fee9e7;
+$red-1000: #300603;
+$red-200: #fdd3d0;
+$red-300: #fcb3ad;
+$red-400: #f4776a;
+$red-500: #ec221f;
+$red-600: #c00f0c;
+$red-700: #900b09;
+$red-800: #690807;
+$red-900: #4d0b0a;
+$slate-100: #f3f3f3;
+$slate-1000: #242424;
+$slate-200: #e3e3e3;
+$slate-300: #cdcdcd;
+$slate-400: #b2b2b2;
+$slate-500: #949494;
+$slate-600: #767676;
+$slate-700: #5a5a5a;
+$slate-800: #434343;
+$slate-900: #303030;
+$white-100: #ffffff0d;
+$white-1000: #ffffff;
+$white-200: #ffffff1a;
+$white-300: #ffffff33;
+$white-400: #ffffff66;
+$white-500: #ffffffb2;
+$white-600: #ffffffcc;
+$white-700: #ffffffd9;
+$white-800: #ffffffe5;
+$white-900: #fffffff2;
+$yellow-100: #fffbeb;
+$yellow-1000: #401b01;
+$yellow-200: #fff1c2;
+$yellow-300: #ffe8a3;
+$yellow-400: #e8b931;
+$yellow-500: #e5a000;
+$yellow-600: #bf6a02;
+$yellow-700: #975102;
+$yellow-800: #682d03;
+$yellow-900: #522504;
+/* SDS Light */
+/* color */
+$background-brand-default: $brand-800;
+$background-brand-hover: $brand-900;
+$background-brand-secondary: $brand-200;
+$background-brand-secondary-hover: $brand-300;
+$background-brand-tertiary: $brand-100;
+$background-brand-tertiary-hover: $brand-200;
+$background-danger-default: $red-500;
+$background-danger-hover: $red-600;
+$background-danger-secondary: $red-200;
+$background-danger-secondary-hover: $red-300;
+$background-danger-tertiary: $red-100;
+$background-danger-tertiary-hover: $red-200;
+$background-default-default: $white-1000;
+$background-default-default-hover: $gray-100;
+$background-default-secondary: $gray-100;
+$background-default-secondary-hover: $gray-200;
+$background-default-tertiary: $gray-300;
+$background-default-tertiary-hover: $gray-400;
+$background-disabled-default: $gray-300;
+$background-neutral-default: $slate-700;
+$background-neutral-hover: $slate-800;
+$background-neutral-secondary: $slate-300;
+$background-neutral-secondary-hover: $slate-400;
+$background-neutral-tertiary: $slate-200;
+$background-neutral-tertiary-hover: $slate-300;
+$background-positive-default: $green-500;
+$background-positive-hover: $green-600;
+$background-positive-secondary: $green-200;
+$background-positive-secondary-hover: $green-300;
+$background-positive-tertiary: $green-100;
+$background-positive-tertiary-hover: $green-200;
+$background-utilities-blanket: #000000b2;
+$background-utilities-measurement: $pink-200;
+$background-utilities-overlay: #00000080;
+$background-utilities-scrim: #ffffffcc;
+$background-warning-default: $yellow-400;
+$background-warning-hover: $yellow-500;
+$background-warning-secondary: $yellow-200;
+$background-warning-secondary-hover: $yellow-300;
+$background-warning-tertiary: $yellow-100;
+$background-warning-tertiary-hover: $yellow-200;
+
+// Border
+$border-brand-default: $brand-800;
+$border-brand-secondary: $brand-600;
+$border-brand-tertiary: $brand-500;
+$border-danger-default: $red-700;
+$border-danger-secondary: $red-600;
+$border-danger-tertiary: $red-500;
+$border-default-default: $gray-300;
+$border-default-secondary: $gray-500;
+$border-default-tertiary: $gray-700;
+$border-disabled-default: $gray-400;
+$border-neutral-default: $slate-900;
+$border-neutral-secondary: $slate-600;
+$border-neutral-tertiary: $slate-400;
+$border-positive-default: $green-800;
+$border-positive-secondary: $green-600;
+$border-positive-tertiary: $green-500;
+$border-utilities-measurement: $pink-400;
+$border-utilities-swatch: #0000003d;
+$border-warning-default: $yellow-900;
+$border-warning-secondary: $yellow-700;
+$border-warning-tertiary: $yellow-600;
+
+// Icon
+$icon-brand-default: $brand-800;
+$icon-brand-on-brand: $brand-100;
+$icon-brand-on-brand-secondary: $brand-900;
+$icon-brand-on-brand-tertiary: $brand-800;
+$icon-brand-secondary: $brand-600;
+$icon-brand-tertiary: $brand-500;
+$icon-danger-default: $red-700;
+$icon-danger-on-danger: $red-100;
+$icon-danger-on-danger-secondary: $red-700;
+$icon-danger-on-danger-tertiary: $red-700;
+$icon-danger-secondary: $red-600;
+$icon-danger-tertiary: $red-500;
+$icon-default-default: $gray-900;
+$icon-default-secondary: $gray-500;
+$icon-default-tertiary: $gray-400;
+$icon-disabled-default: $gray-400;
+$icon-disabled-on-disabled: $gray-400;
+$icon-neutral-default: $slate-900;
+$icon-neutral-on-neutral: $slate-100;
+$icon-neutral-on-neutral-secondary: $slate-900;
+$icon-neutral-on-neutral-tertiary: $slate-800;
+$icon-neutral-secondary: $slate-700;
+$icon-neutral-tertiary: $slate-600;
+$icon-positive-default: $green-800;
+$icon-positive-on-positive: $green-100;
+$icon-positive-on-positive-secondary: $green-800;
+$icon-positive-on-positive-tertiary: $green-900;
+$icon-positive-secondary: $green-600;
+$icon-positive-tertiary: $green-500;
+$icon-utilities-icon: $pink-600;
+$icon-utilities-icon-on-measurement: $pink-800;
+$icon-warning-default: $yellow-900;
+$icon-warning-on-warning: $yellow-1000;
+$icon-warning-on-warning-secondary: $yellow-800;
+$icon-warning-on-warning-tertiary: $yellow-900;
+$icon-warning-secondary: $yellow-700;
+$icon-warning-tertiary: $yellow-600;
+
+// Text
+$text-brand-default: $brand-800;
+$text-brand-on-brand: $brand-100;
+$text-brand-on-brand-secondary: $brand-900;
+$text-brand-on-brand-tertiary: $brand-800;
+$text-brand-secondary: $brand-600;
+$text-brand-tertiary: $brand-500;
+$text-danger-default: $red-700;
+$text-danger-on-danger: $red-100;
+$text-danger-on-danger-secondary: $red-700;
+$text-danger-on-danger-tertiary: $red-700;
+$text-danger-secondary: $red-600;
+$text-danger-tertiary: $red-500;
+$text-default-default: $gray-900;
+$text-default-secondary: $gray-500;
+$text-default-tertiary: $gray-400;
+$text-disabled-default: $gray-400;
+$text-disabled-on-disabled: $gray-400;
+$text-neutral-default: $slate-900;
+$text-neutral-on-neutral: $slate-100;
+$text-neutral-on-neutral-secondary: $slate-900;
+$text-neutral-on-neutral-tertiary: $slate-800;
+$text-neutral-secondary: $slate-700;
+$text-neutral-tertiary: $slate-600;
+$text-positive-default: $green-800;
+$text-positive-on-positive: $green-100;
+$text-positive-on-positive-secondary: $green-800;
+$text-positive-on-positive-tertiary: $green-800;
+$text-positive-secondary: $green-600;
+$text-positive-tertiary: $green-500;
+$text-utilities-text-on-measurement: $pink-800;
+$text-utilities-text-on-overlay: $black-1000;
+$text-warning-default: $yellow-900;
+$text-warning-on-warning: $yellow-1000;
+$text-warning-on-warning-secondary: $yellow-800;
+$text-warning-on-warning-tertiary: $yellow-900;
+$text-warning-secondary: $yellow-700;
+$text-warning-tertiary: $yellow-600;
+/* SDS Dark */
+/* color */
+$background-brand-default: $brand-100;
+$background-brand-hover: $brand-300;
+$background-brand-secondary: $brand-600;
+$background-brand-secondary-hover: $brand-500;
+$background-brand-tertiary: $brand-600;
+$background-brand-tertiary-hover: $brand-800;
+$background-danger-default: $red-600;
+$background-danger-hover: $red-700;
+$background-danger-secondary: $red-800;
+$background-danger-secondary-hover: $red-900;
+$background-danger-tertiary: $red-900;
+$background-danger-tertiary-hover: $red-1000;
+$background-default-default: $gray-900;
+$background-default-default-hover: $gray-700;
+$background-default-secondary: $gray-800;
+$background-default-secondary-hover: $gray-900;
+$background-default-tertiary: $gray-600;
+$background-default-tertiary-hover: $gray-700;
+$background-disabled-default: $gray-700;
+$background-neutral-default: $slate-400;
+$background-neutral-hover: $slate-500;
+$background-neutral-secondary: $slate-900;
+$background-neutral-secondary-hover: $slate-1000;
+$background-neutral-tertiary: $slate-900;
+$background-neutral-tertiary-hover: $slate-1000;
+$background-positive-default: $green-700;
+$background-positive-hover: $green-800;
+$background-positive-secondary: $green-800;
+$background-positive-secondary-hover: $green-900;
+$background-positive-tertiary: $green-900;
+$background-positive-tertiary-hover: $green-1000;
+$background-utilities-blanket: #000000b2;
+$background-utilities-measurement: $pink-800;
+$background-utilities-overlay: #00000080;
+$background-utilities-scrim: #000000cc;
+$background-warning-default: $yellow-400;
+$background-warning-hover: $yellow-500;
+$background-warning-secondary: $yellow-800;
+$background-warning-secondary-hover: $yellow-900;
+$background-warning-tertiary: $yellow-900;
+$background-warning-tertiary-hover: $yellow-1000;
+$border-brand-default: $brand-100;
+$border-brand-secondary: $brand-300;
+$border-brand-tertiary: $brand-400;
+$border-danger-default: $red-200;
+$border-danger-secondary: $red-400;
+$border-danger-tertiary: $red-500;
+$border-default-default: $gray-600;
+$border-default-secondary: $gray-500;
+$border-default-tertiary: $gray-400;
+$border-disabled-default: $gray-600;
+$border-neutral-default: $slate-100;
+$border-neutral-secondary: $slate-500;
+$border-neutral-tertiary: $slate-600;
+$border-positive-default: $green-200;
+$border-positive-secondary: $green-400;
+$border-positive-tertiary: $green-600;
+$border-utilities-measurement: $pink-600;
+$border-utilities-swatch: #ffffff3d;
+$border-warning-default: $yellow-200;
+$border-warning-secondary: $yellow-400;
+$border-warning-tertiary: $yellow-600;
+$icon-brand-default: $brand-100;
+$icon-brand-on-brand: $brand-900;
+$icon-brand-on-brand-secondary: $brand-100;
+$icon-brand-on-brand-tertiary: $brand-100;
+$icon-brand-secondary: $brand-300;
+$icon-brand-tertiary: $brand-400;
+$icon-danger-default: $red-200;
+$icon-danger-on-danger: $red-100;
+$icon-danger-on-danger-secondary: $red-100;
+$icon-danger-on-danger-tertiary: $red-100;
+$icon-danger-secondary: $red-400;
+$icon-danger-tertiary: $red-500;
+$icon-default-default: $white-1000;
+$icon-default-secondary: $white-500;
+$icon-default-tertiary: $white-400;
+$icon-disabled-default: $gray-500;
+$icon-disabled-on-disabled: $gray-400;
+$icon-neutral-default: $slate-200;
+$icon-neutral-on-neutral: $slate-1000;
+$icon-neutral-on-neutral-secondary: $slate-100;
+$icon-neutral-on-neutral-tertiary: $slate-100;
+$icon-neutral-secondary: $slate-300;
+$icon-neutral-tertiary: $slate-400;
+$icon-positive-default: $green-200;
+$icon-positive-on-positive: $green-100;
+$icon-positive-on-positive-secondary: $green-100;
+$icon-positive-on-positive-tertiary: $green-100;
+$icon-positive-secondary: $green-400;
+$icon-positive-tertiary: $green-600;
+$icon-utilities-icon: $pink-400;
+$icon-utilities-icon-on-measurement: $pink-200;
+$icon-warning-default: $yellow-200;
+$icon-warning-on-warning: $yellow-1000;
+$icon-warning-on-warning-secondary: $yellow-100;
+$icon-warning-on-warning-tertiary: $yellow-100;
+$icon-warning-secondary: $yellow-400;
+$icon-warning-tertiary: $yellow-600;
+$text-brand-default: $brand-100;
+$text-brand-on-brand: $brand-900;
+$text-brand-on-brand-secondary: $brand-100;
+$text-brand-on-brand-tertiary: $brand-100;
+$text-brand-secondary: $brand-300;
+$text-brand-tertiary: $brand-400;
+$text-danger-default: $red-200;
+$text-danger-on-danger: $red-100;
+$text-danger-on-danger-secondary: $red-100;
+$text-danger-on-danger-tertiary: $red-100;
+$text-danger-secondary: $red-400;
+$text-danger-tertiary: $red-500;
+$text-default-default: $white-1000;
+$text-default-secondary: $white-500;
+$text-default-tertiary: $white-400;
+$text-disabled-default: $gray-500;
+$text-disabled-on-disabled: $gray-400;
+$text-neutral-default: $slate-200;
+$text-neutral-on-neutral: $slate-1000;
+$text-neutral-on-neutral-secondary: $slate-100;
+$text-neutral-on-neutral-tertiary: $slate-100;
+$text-neutral-secondary: $slate-300;
+$text-neutral-tertiary: $slate-400;
+$text-positive-default: $green-200;
+$text-positive-on-positive: $green-100;
+$text-positive-on-positive-secondary: $green-100;
+$text-positive-on-positive-tertiary: $green-100;
+$text-positive-secondary: $green-400;
+$text-positive-tertiary: $green-600;
+$text-utilities-text-on-measurement: $pink-200;
+$text-utilities-text-on-overlay: $white-1000;
+$text-warning-default: $yellow-200;
+$text-warning-on-warning: $yellow-1000;
+$text-warning-on-warning-secondary: $yellow-100;
+$text-warning-on-warning-tertiary: $yellow-100;
+$text-warning-secondary: $yellow-400;
+$text-warning-tertiary: $yellow-600;
+
+// --- SIZE TOKENS ---
+$blur-100: 4px;
+$depth-negative-1200: -48px;
+$depth-negative-800: -32px;
+$depth-negative-400: -16px;
+$depth-negative-200: -8px;
+$depth-negative-100: -4px;
+$depth-negative-025: -1px;
+$depth-0: 0px;
+$depth-025: 1px;
+$depth-100: 4px;
+$depth-200: 8px;
+$depth-400: 16px;
+$depth-800: 32px;
+$depth-1200: 48px;
+$icon-small: 24px;
+$icon-medium: 32px;
+$icon-large: 40px;
+$radius-100: 4px;
+$radius-200: 8px;
+$radius-400: 16px;
+$radius-full: 9999px;
+$space-negative-600: -24px;
+$space-negative-400: -16px;
+$space-negative-300: -12px;
+$space-negative-200: -8px;
+$space-negative-100: -4px;
+$space-0: 0px;
+$space-050: 2px;
+$space-100: 4px;
+$space-150: 6px;
+$space-200: 8px;
+$space-300: 12px;
+$space-400: 16px;
+$space-600: 24px;
+$space-800: 32px;
+$space-1200: 48px;
+$space-1600: 64px;
+$space-2400: 96px;
+$space-4000: 160px;
+$stroke-border: 1px;
+$stroke-focus-ring: 2px;
