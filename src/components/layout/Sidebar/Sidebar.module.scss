@@ -23,6 +23,7 @@
       color: var.$text-neutral-default;
       @include typo.headline-small-emphasized;
       font-weight: var.$weight-bold;
+      text-transform: uppercase;
     }
   }
 
@@ -37,47 +38,56 @@
       color: var.$text-default-tertiary;
     }
 
-    .navContainer {
-      @include typo.body-medium;
-      color: var.$text-neutral-tertiary;
+    .navList {
+      display: flex;
+      flex-direction: column;
+      column-gap: var.$space-4;
 
       .navLink {
-        border-radius: 8px;
-        margin-bottom: 4px;
-        color: var.$text-neutral-secondary;
-        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: var.$space-12 var.$space-24;
+        gap: var.$space-20;
 
-        // Icon style
-        :global(.mantine-NavLink-section) {
-          color: var.$text-neutral-tertiary;
-        }
+        border-radius: var.$radius-8;
+        @include typo.body-medium;
+        color: var.$text-neutral-tertiary;
+        cursor: pointer;
 
         &:hover {
-          background-color: var.$bg-default-default-hover;
-          color: var.$text-neutral-on-neutral;
+          background-color: var.$bg-default-secondary;
         }
 
-        &[data-active] {
-          background-color: var.$bg-neutral-secondary;
-          color: var.$text-neutral-on-neutral;
-          font-weight: 600;
+        // Can thiệp vào phần section bên trái (chứa icon)
+        :global(.mantine-NavLink-section) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 1;
+          margin: 0;
 
-          :global(.mantine-NavLink-section) {
-            color: var.$text-brand-default; // Icon Fill sẽ có màu Brand
+          svg {
+            color: var.$icon-default-secondary;
+
+            [opacity] {
+              opacity: 0.3; // Chỉnh con số này để mảng mờ đậm lên hoặc nhạt đi
+            }
           }
         }
-      }
 
-      .childLink {
-        margin-left: 20px;
-        border-left: 1px solid var.$border-neutral-default;
-        border-radius: 0 8px 8px 0;
-        color: var.$text-neutral-secondary;
+        // Can thiệp vào phần body (chứa text)
+        :global(.mantine-NavLink-body) {
+          flex: 1; // Nó sẽ chiếm toàn bộ khoảng trống còn lại
+        }
 
-        &[data-active] {
-          color: var.$text-brand-default;
-          background-color: transparent;
-          font-weight: 600;
+        // Can thiệp vào phần section bên phải (chứa mũi tên)
+        :global(.mantine-NavLink-section[data-position='right']) {
+          margin-left: auto; // Chắc chắn nó bị đẩy về bên phải
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          width: 20px; // Cho nó một cái box cố định để dễ căn chỉnh
         }
       }
     }
