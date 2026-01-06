@@ -1,13 +1,14 @@
 .layoutWrapper {
-  // display: flex;
+  display: flex;
+  flex-direction: row;
   // height: 100vh;
   // width: 100vw;
-  // overflow: hidden; // Không cho cả trang web bị cuộn bậy bạ
+  overflow: hidden; // Không cho cả trang web bị cuộn bậy bạ
 }
 
 .mainContent {
-  // flex: 1; // Chiếm toàn bộ phần còn lại bên phải Sidebar
+  flex: 1; // Chiếm toàn bộ phần còn lại bên phải Sidebar
   // height: 100vh;
-  // overflow-y: auto; // Chỉ cho phép cuộn nội dung ở đây
+  overflow-y: auto; // Chỉ cho phép cuộn nội dung ở đây
   // padding: 24px;
 }

@@ -29,23 +29,44 @@ const Sidebar = () => {
       <nav className={styles.nav}>
         <span className={styles.menu}>Menu</span>
         <div className={styles.navList}>
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.label}
-              label={item.label}
-              className={styles.navLink}
-              leftSection={<item.icon size={20} weight="duotone" />}
-              rightSection={item.links && <CaretRight size={14} />}
-            >
-              {item.links?.map((child) => (
-                <NavLink
-                  key={child.label}
-                  label={child.label}
-                  className={styles.childLink}
-                />
-              ))}
-            </NavLink>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const hasChildren = !!item.links?.length;
+            // Kiểm tra xem có con nào đang active không
+            const isChildActive = item.links?.some(
+              (child) => pathname === child.link,
+            );
+            // Thằng cha chỉ được coi là "active" nếu nó KHÔNG có con và URL khớp
+            const isActive = !hasChildren && pathname === item.link;
+
+            return (
+              <NavLink
+                key={item.label}
+                label={item.label}
+                className={styles.navLink}
+                active={isActive}
+                defaultOpened={item.initiallyOpened || isChildActive}
+                href={hasChildren ? undefined : item.link}
+                component={hasChildren ? 'div' : 'a'}
+                leftSection={
+                  <item.icon size={20} weight={isActive ? 'fill' : 'duotone'} />
+                }
+                rightSection={hasChildren && <CaretRight size={14} />}
+              >
+                {item.links?.map((child) => (
+                  <NavLink
+                    key={child.label}
+                    label={child.label}
+                    className={styles.childLink}
+                    href={child.link}
+                    component="a"
+                    active={pathname === child.link}
+                    leftSection={<item.icon size={20} weight="duotone" />}
+                    rightSection={<CaretRight size={14} />}
+                  />
+                ))}
+              </NavLink>
+            );
+          })}
         </div>
       </nav>
     </aside>

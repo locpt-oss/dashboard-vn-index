@@ -4,6 +4,7 @@
 .sidebar {
   padding: var.$space-16;
   width: 250px;
+  border-right: 1px solid var.$border-base-default;
 
   display: flex;
   flex-direction: column;
@@ -53,10 +54,34 @@
         border-radius: var.$radius-8;
         @include typo.body-medium;
         color: var.$text-neutral-tertiary;
+        text-decoration: none;
+
+        transition: all 0.2s ease;
         cursor: pointer;
 
-        &:hover {
+        // CHỈ HOVER KHI CHƯA ACTIVE
+        &:not([data-active]):hover {
           background-color: var.$bg-default-secondary;
+          color: var.$text-neutral-tertiary;
+
+          :global(.mantine-NavLink-section) {
+            color: var.$text-brand-default;
+          }
+        }
+
+        // TRẠNG THÁI ĐÃ SELECT (Chặn hover, chặn click)
+        &[data-active] {
+          background-color: var.$bg-default-secondary-hover;
+          color: var.$text-neutral-default;
+          pointer-events: none; // Không cho hover hay click nữa
+
+          :global(.mantine-NavLink-label) {
+            font-weight: var.$weight-bold;
+          }
+
+          :global(.mantine-NavLink-section) {
+            color: var.$text-brand-default; // Icon Fill màu Brand
+          }
         }
 
         // Can thiệp vào phần section bên trái (chứa icon)
@@ -88,6 +113,74 @@
           align-items: center;
           justify-content: flex-end;
           width: 20px; // Cho nó một cái box cố định để dễ căn chỉnh
+        }
+      }
+
+      :global(.mantine-NavLink-children) {
+        display: flex;
+        flex-direction: column;
+        column-gap: var.$space-4;
+
+        :global(.mantine-NavLink-root) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: var.$space-12 var.$space-24;
+          gap: var.$space-20;
+
+          border-radius: var.$radius-8;
+          @include typo.body-medium;
+          color: var.$text-neutral-tertiary;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            background-color: var.$bg-default-secondary;
+          }
+
+          // TRẠNG THÁI ĐÃ SELECT (Chặn hover, chặn click)
+          &[data-active] {
+            background-color: var.$bg-default-secondary-hover;
+            color: var.$text-neutral-default;
+            pointer-events: none; // Không cho hover hay click nữa
+
+            :global(.mantine-NavLink-label) {
+              font-weight: var.$weight-bold;
+            }
+          }
+
+          // Can thiệp vào phần section bên trái (chứa icon)
+          :global(.mantine-NavLink-section) {
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            margin: 0;
+
+            svg {
+              color: var.$icon-default-secondary;
+
+              [opacity] {
+                opacity: 0.3; // Chỉnh con số này để mảng mờ đậm lên hoặc nhạt đi
+              }
+            }
+          }
+
+          // Can thiệp vào phần body (chứa text)
+          :global(.mantine-NavLink-body) {
+            flex: 1; // Nó sẽ chiếm toàn bộ khoảng trống còn lại
+          }
+
+          // Can thiệp vào phần section bên phải (chứa mũi tên)
+          :global(.mantine-NavLink-section[data-position='right']) {
+            opacity: 0; // Ẩn mũi tên đi
+            margin-left: auto; // Chắc chắn nó bị đẩy về bên phải
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 20px; // Cho nó một cái box cố định để dễ căn chỉnh
+          }
         }
       }
     }
