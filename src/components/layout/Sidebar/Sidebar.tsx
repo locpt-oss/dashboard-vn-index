@@ -1,15 +1,12 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
-
 import { NAV_ITEMS } from '@/constants/navigation';
-
-import { Flex, NavLink, Text } from '@mantine/core';
+import { NavLink } from '@mantine/core';
 import styles from './Sidebar.module.scss';
-import { CaretDown, CaretRight } from '@phosphor-icons/react';
+import { CaretRight } from '@phosphor-icons/react';
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -19,52 +16,77 @@ const Sidebar = () => {
       <div className={styles.header}>
         <Image
           src="/vninsight-logo.svg"
-          alt="VNINSIGHT Logo"
-          width={36} // Chỉnh kích thước cho khớp với thiết kế
+          alt="Logo"
+          width={36}
           height={36}
-          priority // Ưu tiên load logo trước
+          priority
         />
         <span className={styles.brandText}>VnInsight</span>
       </div>
+
       <nav className={styles.nav}>
         <span className={styles.menu}>Menu</span>
         <div className={styles.navList}>
           {NAV_ITEMS.map((item) => {
             const hasChildren = !!item.links?.length;
-            // Kiểm tra xem có con nào đang active không
             const isChildActive = item.links?.some(
               (child) => pathname === child.link,
             );
-            // Thằng cha chỉ được coi là "active" nếu nó KHÔNG có con và URL khớp
             const isActive = !hasChildren && pathname === item.link;
 
+            // --- CASE 1: CÓ MENU CON (Dùng 'div', không quan tâm Link props) ---
+            if (hasChildren) {
+              return (
+                <NavLink
+                  key={item.label}
+                  label={item.label}
+                  className={styles.navLink}
+                  active={isActive}
+                  defaultOpened={true} // Mặc định mở menu con
+                  leftSection={
+                    <item.icon
+                      size={20}
+                      weight={isActive ? 'fill' : 'duotone'}
+                    />
+                  }
+                  rightSection={<CaretRight size={14} />}
+                  component="div" // 'div' là string, NavLink chấp nhận ngay
+                >
+                  {item.links?.map((child) => (
+                    <NavLink
+                      key={child.label}
+                      label={child.label}
+                      // Link con thì dùng NextLink bình thường
+                      component={Link}
+                      href={child.link as string} // Ép kiểu string cho chắc
+                      active={pathname === child.link}
+                      className={styles.navLink}
+                      leftSection={
+                        <item.icon
+                          size={20}
+                          weight={isActive ? 'fill' : 'duotone'}
+                        />
+                      }
+                    />
+                  ))}
+                </NavLink>
+              );
+            }
+
+            // --- CASE 2: KHÔNG CÓ MENU CON (Dùng NextLink, ép kiểu href) ---
             return (
               <NavLink
                 key={item.label}
                 label={item.label}
                 className={styles.navLink}
                 active={isActive}
-                defaultOpened={item.initiallyOpened || isChildActive}
-                href={hasChildren ? undefined : item.link}
-                component={hasChildren ? 'div' : 'a'}
                 leftSection={
                   <item.icon size={20} weight={isActive ? 'fill' : 'duotone'} />
                 }
-                rightSection={hasChildren && <CaretRight size={14} />}
-              >
-                {item.links?.map((child) => (
-                  <NavLink
-                    key={child.label}
-                    label={child.label}
-                    className={styles.childLink}
-                    href={child.link}
-                    component="a"
-                    active={pathname === child.link}
-                    leftSection={<item.icon size={20} weight="duotone" />}
-                    rightSection={<CaretRight size={14} />}
-                  />
-                ))}
-              </NavLink>
+                rightSection={null}
+                component={Link}
+                href={item.link as string}
+              />
             );
           })}
         </div>

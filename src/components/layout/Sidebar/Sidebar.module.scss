@@ -42,7 +42,7 @@
     .navList {
       display: flex;
       flex-direction: column;
-      column-gap: var.$space-4;
+      gap: var.$space-4;
 
       .navLink {
         display: flex;
@@ -84,6 +84,14 @@
           }
         }
 
+        // Xoay mũi tên khi mở menu
+        &[data-opened] {
+          :global(.mantine-NavLink-section[data-position='right']) {
+            transform: rotate(90deg);
+            transition: transform 0.2s ease;
+          }
+        }
+
         // Can thiệp vào phần section bên trái (chứa icon)
         :global(.mantine-NavLink-section) {
           display: flex;
@@ -116,10 +124,11 @@
         }
       }
 
+      // DÀNH CHO SUBLINK (danh sách con)
       :global(.mantine-NavLink-children) {
         display: flex;
         flex-direction: column;
-        column-gap: var.$space-4;
+        gap: var.$space-4;
 
         :global(.mantine-NavLink-root) {
           display: flex;
@@ -170,16 +179,6 @@
           // Can thiệp vào phần body (chứa text)
           :global(.mantine-NavLink-body) {
             flex: 1; // Nó sẽ chiếm toàn bộ khoảng trống còn lại
-          }
-
-          // Can thiệp vào phần section bên phải (chứa mũi tên)
-          :global(.mantine-NavLink-section[data-position='right']) {
-            opacity: 0; // Ẩn mũi tên đi
-            margin-left: auto; // Chắc chắn nó bị đẩy về bên phải
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            width: 20px; // Cho nó một cái box cố định để dễ căn chỉnh
           }
         }
       }
