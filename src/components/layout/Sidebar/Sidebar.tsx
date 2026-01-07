@@ -42,7 +42,7 @@ const Sidebar = () => {
                   label={item.label}
                   className={styles.navLink}
                   active={isActive}
-                  defaultOpened={true} // Mặc định mở menu con
+                  defaultOpened={isChildActive ? true : false}
                   leftSection={
                     <item.icon
                       size={20}
@@ -58,7 +58,7 @@ const Sidebar = () => {
                       label={child.label}
                       // Link con thì dùng NextLink bình thường
                       component={Link}
-                      href={child.link as string} // Ép kiểu string cho chắc
+                      href={child.link as string}
                       active={pathname === child.link}
                       className={styles.navLink}
                       leftSection={
