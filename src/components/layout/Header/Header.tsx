@@ -1,10 +1,20 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Breadcrumbs, Anchor, Text, Group } from '@mantine/core';
+import {
+  Breadcrumbs,
+  Anchor,
+  Text,
+  Group,
+  ActionIcon,
+  Avatar,
+  TextInput,
+  useComputedColorScheme,
+  useMantineColorScheme,
+} from '@mantine/core';
 import Link from 'next/link';
 import styles from './Header.module.scss';
-import { CaretRight } from '@phosphor-icons/react';
+import { CaretRight, MagnifyingGlass, Moon, Sun } from '@phosphor-icons/react';
 
 const Header = () => {
   const pathname = usePathname();
@@ -35,6 +45,11 @@ const Header = () => {
       </Anchor>
     );
   });
+
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme('light', {
+    getInitialValueInEffect: true,
+  });
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -58,10 +73,45 @@ const Header = () => {
           </Breadcrumbs>
         </div>
 
-        {/* Phần bên phải: Search hoặc User Profile (Mày có thể thêm sau) */}
-        <Group className={styles.rightSection}>
-          {/* Ví dụ: <div className={styles.userAvatar}>...</div> */}
-        </Group>
+        <div className={styles.rightSection}>
+          {/* 1. Search Box */}
+          <TextInput
+            placeholder="Search"
+            leftSection={<MagnifyingGlass size={16} weight="regular" />}
+            className={styles.searchBox}
+            variant="default"
+            radius="md"
+          />
+
+          <div className={styles.actionIcon}>
+            <ActionIcon
+              onClick={() =>
+                setColorScheme(
+                  computedColorScheme === 'light' ? 'dark' : 'light',
+                )
+              }
+              variant="subtle"
+              color="gray"
+              size="lg"
+              radius="md"
+              aria-label="Toggle color scheme"
+            >
+              {computedColorScheme === 'light' ? (
+                <Moon size={20} weight="fill" />
+              ) : (
+                <Sun size={20} weight="fill" />
+              )}
+            </ActionIcon>
+
+            {/* 3. Avatar */}
+            <Avatar
+              src={null}
+              alt="no image here"
+              size={'sm'}
+              className={styles.avatar}
+            />
+          </div>
+        </div>
       </div>
     </header>
   );

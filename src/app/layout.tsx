@@ -1,10 +1,12 @@
+// Import Styles
+import '@mantine/core/styles.css';
+import '@/styles/globals.scss';
+import styles from '@/app/layout.module.scss';
+
 // Import Libraries
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core';
-// Import Styles
-import '@/styles/globals.scss';
-import styles from '@/app/layout.module.scss';
 
 // 1. Cấu hình Font Inter
 const roboto = Roboto({

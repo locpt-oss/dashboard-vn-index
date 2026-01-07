@@ -50,5 +50,46 @@
         }
       }
     }
+
+    .rightSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var.$space-20;
+
+      .searchBox {
+        width: 300px; // Độ rộng của search box
+
+        :global(.mantine-TextInput-input) {
+          background-color: transparent;
+          border-color: var.$border-base-default;
+          transition: border-color 0.2s ease;
+
+          &:focus {
+            border-color: var.$text-brand-default;
+          }
+
+          &::placeholder {
+            color: var.$text-default-tertiary;
+            opacity: 0.6;
+          }
+        }
+
+        :global(.mantine-TextInput-section) {
+          color: var.$text-default-tertiary;
+        }
+      }
+
+      .actionIcon {
+        display: flex;
+        align-items: center;
+        gap: var.$space-12;
+        padding-right: var.$space-8;
+
+        .avatar {
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
