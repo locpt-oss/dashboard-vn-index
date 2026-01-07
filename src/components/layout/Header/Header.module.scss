@@ -24,6 +24,7 @@
         flex-direction: row;
         align-items: center;
         gap: var.$space-8;
+        margin-top: var.$space-0;
 
         :global(.mantine-Breadcrumbs-separator) {
           color: var.$black-500;
