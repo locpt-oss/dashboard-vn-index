@@ -5,8 +5,6 @@ import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core';
 // Import Styles
 import '@/styles/globals.scss';
 import styles from '@/app/layout.module.scss';
-// Import Components
-import Sidebar from '@/components/layout/Sidebar';
 
 // 1. Cấu hình Font Inter
 const roboto = Roboto({
@@ -39,10 +37,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme}>
-          <div className={styles.layoutWrapper}>
-            <Sidebar />
-            <main className={styles.mainContent}>{children}</main>
-          </div>
+          <main className={styles.mainContent}>{children}</main>
         </MantineProvider>
       </body>
     </html>

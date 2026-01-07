@@ -1,0 +1,16 @@
+.layoutWrapper {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden; // Không cho cả trang web bị cuộn bậy bạ
+  height: 100%;
+  width: 100%;
+
+  .mainArea {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+
+    .content {
+    }
+  }
+}
