@@ -1,2 +1,54 @@
 @use '../../../styles/variables' as var;
 @use '../../../styles/typography' as typo;
+
+.header {
+  width: 100%;
+  padding: var.$space-20 var.$space-24;
+  border-bottom: 1px solid var.$border-base-default;
+
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .leftSection {
+      :global(.mantine-Breadcrumbs-root) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var.$space-8;
+
+        :global(.mantine-Breadcrumbs-separator) {
+          color: var.$black-500;
+        }
+      }
+
+      .activeBreadcrumb {
+        color: var.$text-neutral-default;
+        @include typo.body-medium-emphasized;
+
+        padding: var.$space-4 var.$space-12;
+      }
+
+      .inactiveBreadcrumb {
+        color: var.$text-neutral-tertiary;
+        text-decoration: none;
+        @include typo.body-medium;
+        transition: color 0.2s ease;
+
+        padding: var.$space-4 var.$space-12;
+
+        &:hover {
+          color: var.$text-neutral-secondary;
+        }
+      }
+    }
+  }
+}
