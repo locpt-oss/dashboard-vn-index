@@ -58,7 +58,6 @@ const Header = () => {
           <Breadcrumbs
             separator={<CaretRight size={12} weight="bold" opacity={0.4} />}
             separatorMargin="sm"
-            mt={'xs'}
           >
             {/* Chữ "Dashboards" đóng vai trò là gốc (root) */}
             <Anchor
