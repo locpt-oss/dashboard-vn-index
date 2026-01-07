@@ -1,0 +1,92 @@
+@use '../../../styles/variables' as var;
+@use '../../../styles/typography' as typo;
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: var.$space-32;
+  padding: var.$space-32;
+
+  .stats {
+    display: flex;
+    flex-direction: column;
+    gap: var.$space-2;
+
+    h3 {
+      padding: var.$space-4 var.$space-8;
+      @include typo.title-small;
+      color: var.$text-default-default;
+    }
+
+    .values {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .indexValue {
+        padding: var.$space-4 var.$space-8;
+        @include typo.headline-small-emphasized;
+        color: var.$text-default-default;
+      }
+      .change {
+        padding: var.$space-4 var.$space-4;
+        @include typo.body-medium;
+        color: var.$text-positive-tertiary;
+      }
+      .percentage {
+        padding: var.$space-4 var.$space-4;
+        @include typo.body-medium;
+        color: var.$text-positive-tertiary;
+      }
+    }
+
+    .additionalInfo {
+      display: flex;
+      flex-direction: row;
+      gap: var.$space-20;
+
+      .updated {
+        span {
+          &:first-child {
+            padding: var.$space-4 var.$space-4 var.$space-4 var.$space-8;
+            @include typo.body-small;
+            color: var.$text-default-tertiary;
+          }
+          &:last-child {
+            padding: var.$space-4 var.$space-2;
+            @include typo.body-small;
+            color: var.$text-default-secondary;
+          }
+        }
+      }
+      .totalVolume {
+        span {
+          &:first-child {
+            padding: var.$space-4;
+            @include typo.body-small;
+            color: var.$text-default-tertiary;
+          }
+          &:last-child {
+            padding: var.$space-4 var.$space-2;
+            @include typo.body-small;
+            color: var.$text-default-secondary;
+          }
+        }
+      }
+      .transactionValue {
+        span {
+          &:first-child {
+            padding: var.$space-4;
+            @include typo.body-small;
+            color: var.$text-default-tertiary;
+          }
+          &:last-child {
+            padding: var.$space-4 var.$space-2;
+            @include typo.body-small;
+            color: var.$text-default-secondary;
+          }
+        }
+      }
+    }
+  }
+}
