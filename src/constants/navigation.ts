@@ -11,7 +11,7 @@ export const NAV_ITEMS = [
   {
     label: 'Overview',
     icon: House,
-    link: '/dashboard',
+    link: '/overview',
   },
   {
     label: 'Investor',
