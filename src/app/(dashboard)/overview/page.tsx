@@ -2,6 +2,8 @@
 
 import styles from './Overview.module.scss';
 
+import { StockStatusChart } from '@/components/charts';
+
 const Overview = () => {
   return (
     <div className={styles.overview}>
@@ -24,6 +26,18 @@ const Overview = () => {
           <div className={styles.transactionValue}>
             <span>Transaction Value:</span>
             <span>22,350 tỷ</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.cashFlow}>
+        <h3>Cash Flow</h3>
+        <div className={styles.chartContainer}>
+          <div className={styles.pieChart}>
+            <StockStatusChart />
+          </div>
+          <div className={styles.barChart}>
+            <StockStatusChart />
           </div>
         </div>
       </div>
