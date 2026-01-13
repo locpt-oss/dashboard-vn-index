@@ -13,7 +13,6 @@ const Chart = dynamic(() => import('react-apexcharts'), {
 });
 
 const StockStatusChart = () => {
-  // 1. Dữ liệu: 5 con số tương ứng 5 loại
   const series = [25, 180, 50, 110, 15];
 
   return (

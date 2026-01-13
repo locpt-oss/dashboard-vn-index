@@ -1,5 +1,6 @@
 'use client';
 
+import CashFlowChart from '@/components/charts/CashFlowChart';
 import styles from './Overview.module.scss';
 
 import { StockStatusChart } from '@/components/charts';
@@ -37,7 +38,7 @@ const Overview = () => {
             <StockStatusChart />
           </div>
           <div className={styles.barChart}>
-            <StockStatusChart />
+            <CashFlowChart />
           </div>
         </div>
       </div>
