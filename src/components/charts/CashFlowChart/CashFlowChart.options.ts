@@ -37,13 +37,16 @@ export const getCashFlowOptions = (): ApexOptions => {
       formatter: (val) => val.toLocaleString(),
       offsetY: -25, // Đẩy số lên trên đầu cột
       style: {
-        fontSize: typo.labelSmall.fontSize as string,
-        colors: [colors.text.default],
+        fontFamily: typo.fontFamily,
+        fontSize: typo.labelMedium.fontSize as string,
+        fontWeight: typo.labelMedium.weightSemibold as number,
       },
     },
-    legend: { show: false }, // Đã có tên dưới trục X nên không cần legend
     grid: {
       show: false, // Thường bar chart dạng này để nền sạch nhìn chuyên nghiệp hơn
+    },
+    legend: {
+      show: false,
     },
     xaxis: {
       categories: ['Mua chủ động', 'Bán chủ động', 'Tham chiếu'],
@@ -51,11 +54,13 @@ export const getCashFlowOptions = (): ApexOptions => {
       axisTicks: { show: false },
       labels: {
         style: {
-          fontWeight: 600,
+          colors: colors.text.secondary,
+          fontFamily: typo.fontFamily,
+          fontSize: typo.bodyMedium.fontSize as string,
+          fontWeight: typo.bodyMedium.weightRegular as number,
         },
       },
     },
-    // BẬT LẠI TRỤC Y Ở ĐÂY
     yaxis: {
       show: true,
       labels: {

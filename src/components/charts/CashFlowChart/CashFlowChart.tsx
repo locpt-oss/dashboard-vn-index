@@ -2,9 +2,16 @@
 
 import styles from './CashFlowChart.module.scss';
 
-import Chart from 'react-apexcharts';
-import { Paper } from '@mantine/core';
+import dynamic from 'next/dynamic';
+import { Box, Paper } from '@mantine/core';
+
 import { getCashFlowOptions } from './CashFlowChart.options';
+
+// Load dynamic để chạy được trong Next.js App Router
+const Chart = dynamic(() => import('react-apexcharts'), {
+  ssr: false,
+  loading: () => <Box className={styles.loadingBox}>Đang tải...</Box>,
+});
 
 const CashFlowChart = () => {
   const series = [
@@ -22,7 +29,7 @@ const CashFlowChart = () => {
           series={series}
           type="bar"
           width="100%"
-          height={300}
+          height="100%"
         />
       </div>
     </Paper>

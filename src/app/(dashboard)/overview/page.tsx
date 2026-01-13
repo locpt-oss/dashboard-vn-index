@@ -1,9 +1,8 @@
 'use client';
 
-import CashFlowChart from '@/components/charts/CashFlowChart';
 import styles from './Overview.module.scss';
 
-import { StockStatusChart } from '@/components/charts';
+import { StockStatusChart, CashFlowChart } from '@/components/charts';
 
 const Overview = () => {
   return (
