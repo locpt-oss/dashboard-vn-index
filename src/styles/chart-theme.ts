@@ -6,7 +6,11 @@ export const CHART_THEME = {
     ref: '#ffd43b',
     down: '#ff6b6b',
     floor: '#339af0',
-    // Thêm màu chữ cho 2 chế độ
+    border: {
+      default: '#d9d9d9',
+      secondary: '#757575',
+      tertiary: '#383838',
+    },
     text: {
       default: '#1a1b1e', // text-default-default
       secondary: '#868e96', // text-default-secondary

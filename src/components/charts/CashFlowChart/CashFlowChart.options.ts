@@ -34,16 +34,20 @@ export const getCashFlowOptions = (): ApexOptions => {
     },
     dataLabels: {
       enabled: true,
-      formatter: (val) => val.toLocaleString(),
+      formatter: (val) => `${val.toLocaleString()} tỷ`,
       offsetY: -25, // Đẩy số lên trên đầu cột
       style: {
         fontFamily: typo.fontFamily,
         fontSize: typo.labelMedium.fontSize as string,
         fontWeight: typo.labelMedium.weightSemibold as number,
+        colors: [colors.text.secondary],
       },
     },
     grid: {
-      show: false, // Thường bar chart dạng này để nền sạch nhìn chuyên nghiệp hơn
+      show: false,
+      borderColor: colors.border.default,
+      strokeDashArray: 12,
+      xaxis: { lines: { show: false } },
     },
     legend: {
       show: false,
