@@ -2,7 +2,11 @@
 
 import styles from './Overview.module.scss';
 
-import { StockStatusChart, CashFlowChart } from '@/components/charts';
+import {
+  StockStatusChart,
+  CashFlowChart,
+  IndexImpactChart,
+} from '@/components/charts';
 
 const Overview = () => {
   return (
@@ -38,6 +42,15 @@ const Overview = () => {
           </div>
           <div className={styles.barChart}>
             <CashFlowChart />
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.indexImpact}>
+        <h3>Influence Index</h3>
+        <div className={styles.chartContainer}>
+          <div className={styles.indexImpactChart}>
+            <IndexImpactChart />
           </div>
         </div>
       </div>

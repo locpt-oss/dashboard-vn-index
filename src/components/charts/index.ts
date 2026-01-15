@@ -7,3 +7,7 @@ export const StockStatusChart = dynamic(() => import('./StockStatusChart'), {
 export const CashFlowChart = dynamic(() => import('./CashFlowChart'), {
   ssr: false,
 });
+
+export const IndexImpactChart = dynamic(() => import('./IndexImpactChart'), {
+  ssr: false,
+});

@@ -118,4 +118,21 @@
       }
     }
   }
+
+  .indexImpact {
+    padding: var.$space-12 var.$space-0;
+    h3 {
+      padding: var.$space-4 var.$space-8;
+      @include typo.title-small;
+      color: var.$text-default-default;
+    }
+
+    .chartContainer {
+      width: 100%;
+      padding: var.$space-8;
+      .indexImpactChart {
+        width: 100%;
+      }
+    }
+  }
 }

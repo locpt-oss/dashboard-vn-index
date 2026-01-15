@@ -1,0 +1,17 @@
+@use '../../../styles/variables' as var;
+@use '../../../styles/typography' as typo;
+
+.marketBreadthChart {
+  .chartContainer {
+    flex: 1; // Chiếm toàn bộ diện tích còn lại của Paper
+    min-height: 0; // Quan trọng để flex child không bị tràn
+    width: 100%;
+
+    .loadingBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+    }
+  }
+}
